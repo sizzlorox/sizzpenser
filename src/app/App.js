@@ -1,6 +1,7 @@
-const { Component } = require('react');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
-class App extends Component {
+class App extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
   constructor(props) {
     super(props);
@@ -26,4 +27,5 @@ class App extends Component {
     )
   }
 }
-module.exports = App;
+
+ReactDOM.render(<App />, document.getElementById('app'), (err) => console.log(err));
