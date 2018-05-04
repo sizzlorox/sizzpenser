@@ -6,15 +6,9 @@ delete presetEnv.isPluginRequired;
 delete presetEnv.transformIncludesAndExcludes;
 
 const options = {
+  devtool: 'source-map',
   mode: 'development',
   target: 'electron-renderer',
-  entry: [
-    path.join(__dirname, 'src/renderer/main.js')
-  ],
-  output: {
-    path: path.join(__dirname, 'dist/main/'),
-    filename: '[name].js'
-  },
   plugins: [
     new NamedModulesPlugin(),
     new HotModuleReplacementPlugin(),
@@ -23,8 +17,9 @@ const options = {
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new ProvidePlugin({
-      React: "react",
-      ReactDOM: "react-dom"
+      React: 'react',
+      ReactDOM: 'react-dom',
+      classnames: 'classnames'
     })
   ],
   resolve: {
@@ -32,45 +27,6 @@ const options = {
       'node_modules'
     ],
     extensions: ['.js']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-        ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              hmr: true
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[local]',
-              camelCase: 'dashesOnly'
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              includePaths: [
-                'node_modules/foundation-sites/scss'
-              ]
-            }
-          }]
-      }
-    ],
-  },
+  }
 };
 module.exports = options;

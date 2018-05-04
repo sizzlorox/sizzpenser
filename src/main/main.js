@@ -1,6 +1,6 @@
-import { app, BrowserWindow } from 'electron';
-import path from 'path';
-import url from 'url';
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+const url = require('url');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 

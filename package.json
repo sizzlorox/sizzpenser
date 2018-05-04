@@ -11,7 +11,8 @@
   "license": "ISC",
   "electronWebpack": {
     "whiteListedModules": [
-      "react", "react-dom"
+      "react",
+      "react-dom"
     ],
     "renderer": {
       "sourceDirectory": "src/renderer",
@@ -22,16 +23,17 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
     "@babel/preset-react": "^7.0.0-beta.46",
     "chai": "^4.1.2",
+    "classnames": "^2.2.5",
     "electron": "^1.8.4",
     "electron-builder": "^20.8.1",
     "electron-webpack": "^2.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "html-webpack-plugin": "^3.2.0",
     "jest": "^22.4.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "sinon": "^4.5.0",
+    "style-loader": "^0.21.0",
     "webpack": "^4.5.0"
   },
   "dependencies": {

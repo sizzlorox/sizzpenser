@@ -1,7 +1,4 @@
-// Components
-const Sidebar = require('./components/sidebar/Sidebar');
-
-class App extends React.Component {
+class SideBar extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
   constructor(props) {
     super(props);
@@ -21,13 +18,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={classnames('container')}>
-        <Sidebar />
-        <div id='header'></div>
-        <div id='content'></div>
-        <div id='footer'></div>
+      <div id='sidebar'>
+        <a href='#'>Home</a>
+        <a href='#'>Expense Reports</a>
       </div>
     );
   }
 }
-module.exports = App;
+module.exports = SideBar;
