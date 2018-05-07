@@ -1,3 +1,6 @@
+// Components
+const AddCategoryModal = require('../components/modals/AddCategory');
+
 class Reports extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
   constructor(props) {
@@ -32,9 +35,15 @@ class Reports extends React.Component {
   }
 
   handleAddCategory() {
-    this.setState({
-      categories: this.state.categories.concat({ name: 'test', values: [] })
-    });
+    const modal = document.getElementById('addCategory');
+    modal.style.display = 'block';
+    const span = document.getElementsByClassName("close")[0];
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    // this.setState({
+    //   categories: this.state.categories.concat({ name: 'test', values: [] })
+    // });
   }
 
   handleAddValue() {
@@ -63,6 +72,7 @@ class Reports extends React.Component {
         <button onClick={this.handleAddCategory}>
           Add Category
         </button>
+        <AddCategoryModal categories={this.state.categories} />
         <button onClick={this.handleAddValue}>
           Add Value
         </button>
