@@ -1,25 +1,24 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px;
+}
+
 #app {
-  @import 'components/sidebar/sidebar';
-  .container {
-    position: relative;
-    padding: 0 0 0 55px;
-  }
-  #header {
-      border: 1px solid #000;
-      width: 100px;
-      height: 20px;
-      margin: 0 0 5px 0;
-  }
-  #content {
-      border: 1px solid #000;
-      width: 100px;
-      height: 50px;
-      margin: 5px 0 5px 0;
-  }
-  #footer {
-      border: 1px solid #000;
-      width: 100px;
-      height: 20px;
-      margin: 5px 0 0 0;
-  }
+    height: 100%;
+    .flex-container {
+        @import 'components/sidebar/sidebar';
+        height: 100%;
+        display: flex;
+        flex-basis: auto;
+        #content {
+            flex-direction: column;
+        }
+    }
 }

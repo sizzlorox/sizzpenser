@@ -21,11 +21,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={classnames('container')}>
+      <div className={classnames('flex-container')}>
         <Sidebar />
-        <div id='header'></div>
-        <div id='content'></div>
-        <div id='footer'></div>
+        <p id='content'>TEST</p>
       </div>
     );
   }

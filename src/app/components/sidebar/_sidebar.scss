@@ -1,8 +1,14 @@
 #sidebar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    background: #000;
+    background: #314550;
+    flex-direction: column;
+    ul {
+        flex-direction: column;
+        margin: 2px;
+        padding: 24px;
+        list-style-type: none;
+    }
+    a {
+        color: #c7c6bd;
+        text-decoration: none;
+    }
 }
