@@ -1,11 +1,12 @@
 // Router
-const { BrowserRouter, Switch, Route } = ReactRouter;
+const { Switch, Route } = ReactRouter;
 
 // Components
 const Sidebar = require('./components/sidebar/Sidebar');
 
 // Views
 const Home = require('./views/Home');
+const Reports = require('./views/Reports');
 
 class App extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
@@ -28,16 +29,14 @@ class App extends React.Component {
   render() {
     return (
       <div className={classnames('flex-container')}>
-        <Sidebar />
-        <div id='content'>
-          <BrowserRouter>
+          <Sidebar />
+          <div id='content'>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/reports' component={Home} />
+              <Route exact path='/reports' component={Reports} />
               <Route component={Home} />
             </Switch>
-          </BrowserRouter>
-        </div>
+          </div>
       </div>
     );
   }

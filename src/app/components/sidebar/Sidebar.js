@@ -1,3 +1,6 @@
+// Router
+const { NavLink } = ReactRouter;
+
 class SideBar extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
   constructor(props) {
@@ -21,16 +24,14 @@ class SideBar extends React.Component {
       <div id='sidebar'>
         <ul>
           <li>
-            <a href='#'>Home</a>
+            <NavLink exact to='/' activeStyle={{ color: 'red' }}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href='#'>Menu 1</a>
-          </li>
-          <li>
-            <a href='#'>Menu 2</a>
-          </li>
-          <li>
-            <a href='#'>Menu 3</a>
+            <NavLink exact to='/reports' activeStyle={{ color: 'red' }}>
+              Reports
+            </NavLink>
           </li>
         </ul>
       </div>
