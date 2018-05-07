@@ -19,6 +19,7 @@ const options = {
     new ProvidePlugin({
       React: 'react',
       ReactDOM: 'react-dom',
+      ReactRouter: 'react-router-dom',
       classnames: 'classnames'
     })
   ],
