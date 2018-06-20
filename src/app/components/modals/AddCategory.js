@@ -4,7 +4,8 @@ class AddCategory extends React.Component {
     super(props);
     // Locally defined state
     this.state = {
-      isLoading: true
+      isLoading: true,
+      categoryValue: ''
     };
   }
 
@@ -16,6 +17,20 @@ class AddCategory extends React.Component {
     this.setState({ isLoading: false });
   }
 
+  updateCategoryValue(event) {
+    this.setState({
+      categoryValue: event.target.value
+    });
+  }
+
+  handleAddCategory = () => {
+    this.props.handler(this.state.categoryValue);
+    this.setState({
+      categoryValue: ''
+    });
+    document.getElementById('addCategory').style.display = 'none';
+  }
+
   render() {
     return (
       <div id='addCategory' className={classnames('modal')}>
@@ -25,11 +40,11 @@ class AddCategory extends React.Component {
             <h2>Add a Category</h2>
           </div>
           <div className={classnames('modal-body')}>
-            Category: <input type='text' name='category' />
+            Category: <input type='text' onChange={event => this.updateCategoryValue(event)} name='category' />
           </div>
-          <button>
+          <button onClick={this.handleAddCategory}>
             Save
-        </button>
+          </button>
         </div>
       </div>
     );

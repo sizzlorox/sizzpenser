@@ -21,9 +21,6 @@ class Reports extends React.Component {
         values: ['Third Value']
       }]
     };
-
-    this.handleAddCategory = this.handleAddCategory.bind(this);
-    this.handleAddValue = this.handleAddValue.bind(this);
   }
 
   componentWillMount() {
@@ -34,16 +31,23 @@ class Reports extends React.Component {
     this.setState({ isLoading: false });
   }
 
-  handleAddCategory() {
+  handleCategoryModal() {
     const modal = document.getElementById('addCategory');
     modal.style.display = 'block';
     const span = document.getElementsByClassName("close")[0];
     span.onclick = function () {
-      modal.style.display = "none";
+      modal.style.display = 'none';
     }
-    // this.setState({
-    //   categories: this.state.categories.concat({ name: 'test', values: [] })
-    // });
+  }
+
+  handleAddCategory = (newCategory) => {
+    console.log('added');
+    this.setState({
+      categories: this.state.categories.concat({
+        name: newCategory,
+        values: []
+      })
+    });
   }
 
   handleAddValue() {
@@ -69,10 +73,10 @@ class Reports extends React.Component {
             {this.state.categories.map(category => category.values.map((value, i, array) => category.name !== array[i > 0 ? i - 1 : i].name ? (<td>{value}</td>) : (<tr key={i}><td>{value}</td></tr>)))}
           </tbody>
         </table>
-        <button onClick={this.handleAddCategory}>
+        <button onClick={this.handleCategoryModal}>
           Add Category
         </button>
-        <AddCategoryModal categories={this.state.categories} />
+        <AddCategoryModal handler={this.handleAddCategory} />
         <button onClick={this.handleAddValue}>
           Add Value
         </button>
